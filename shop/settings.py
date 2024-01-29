@@ -75,9 +75,8 @@ WSGI_APPLICATION = 'shop.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-print(os.getenv('POSTGRES_DB'))
-print(os.getenv('POSTGRES_USER'))
-print(os.getenv('POSTGRES_PASSWORD'))
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
