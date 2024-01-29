@@ -1,0 +1,52 @@
+<html>
+<head>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название Рецепта</th>
+            <th>Добавить в рецепт</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for receipt in receipts %}
+        <tr>
+            <td> {{ receipt.id }}</td>
+            <td>{{ receipt.name }}</td>
+            <td>
+                <form action="{% url 'cook:add_product_to_recipe' %}">
+                    <input style="visibility: hidden" type="text" value={{ receipt.id }} id="recipeName" name="receipt_id" placeholder="Укажите вес продукта" required>
+                    <input style="visibility: hidden" type="text" value={{ product_id }} id="recipeName" name="product_id" placeholder="Укажите вес продукта" required>
+                    <input type="number" id="recipeName" name="weight" placeholder="Укажите вес продукта" required>
+                    <button type="submit">submit</button>
+                </form>
+{#                <a href="{% url 'cook:add_product_to_recipe' %}?receipt_id={{receipt.id}}&product_id={{ product_id }}&weight=50"> Sumbit</a>#}
+            </td>
+{#            <td><input type="text" id="recipeName" name="recipeName" placeholder="Укажите вес продукта" required></td>#}
+
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</body>
+
+</html>
